@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pratik-welcome-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pratik-welcome-app
+  template:
+    metadata:
+      labels:
+        app: pratik-welcome-app
+    spec:
+      containers:
+      - name: pratik-welcome-app
+        # IMPORTANT: This points to your Azure Warehouse
+        image: acrpratikproject.azurecr.io/pratik-welcome-app:latest
+        ports:
+        - containerPort: 3000
